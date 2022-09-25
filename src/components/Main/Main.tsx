@@ -1,14 +1,23 @@
 import React from 'react';
 
+/**
+ * Typage des données reçu au lancement de l'application
+ */
 interface Props {
   data: [];
 }
 
+/**
+ * Typage pour le paramètre "el" de la méthode .map
+ */
 interface Elem {
   id: number;
   image: string;
 }
 
+/**
+ * Affiche les données API
+ */
 const Main: React.FC<Props> = ({ data }) => {
   return (
     <div className='grid grid-cols-2 gap-3 mt-4'>
