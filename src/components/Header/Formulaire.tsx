@@ -12,10 +12,15 @@ interface Props {
 const Formulaire: React.FC<Props> = ({ ingredients, setIngredients, setData, data }) => {
   const url = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&apiKey=${process.env.REACT_APP_DATA_API}`;
 
+  // Permet d'écrire dans la barre de recherche
   const handleSearch = (event: React.FormEvent) => {
     setIngredients((event.target as HTMLInputElement).value);
   };
 
+  /*
+   * Lors d'un submit, la fonction fera un appel api et,
+    ira recherche les recettes à base de l'ingrédient inscrit dans la barre de recherche.
+   */
   const submitHandler = async (event: React.FormEvent) => {
     event.preventDefault();
     const result: AxiosResponse = await axios.get(url);
