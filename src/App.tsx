@@ -4,7 +4,13 @@ import Header from './components/Header/Header';
 import Main from './components/Main/Main';
 
 const App: React.FC = () => {
+  // data contient les données de l'API
   const [data, setData] = useState<any>([]);
+  /**
+   * la variable ingredients permet de rechercher des recettes via la barre de recherche en
+   * entrant l'ingrédient avec lequel on voudrait cuisiner.
+   * Exemple: Le mot "Apple" recherchera toutes les recettes à base de pommes.
+   */
   const [ingredients, setIngredients] = useState<string>('');
 
   const url = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&apiKey=${process.env.REACT_APP_DATA_API}`;
