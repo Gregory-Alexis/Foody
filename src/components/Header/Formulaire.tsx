@@ -19,7 +19,7 @@ const Formulaire: React.FC<Props> = ({ ingredients, setIngredients, setData, dat
 
   /*
    * Lors d'un submit, la fonction fera un appel api et,
-    ira recherche les recettes à base de l'ingrédient inscrit dans la barre de recherche.
+    ira chercher les recettes à base de l'ingrédient inscrit dans la barre de recherche.
    */
   const submitHandler = async (event: React.FormEvent) => {
     event.preventDefault();
