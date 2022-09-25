@@ -13,16 +13,6 @@ const App: React.FC = () => {
    */
   const [ingredients, setIngredients] = useState<string>('');
 
-  const url = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&apiKey=${process.env.REACT_APP_DATA_API}`;
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const result: AxiosResponse = await axios.get(url);
-      setData(result.data);
-    };
-    fetchData();
-  }, []);
-
   return (
     <div className='p-3'>
       <Header
