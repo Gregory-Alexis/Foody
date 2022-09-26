@@ -15,7 +15,7 @@ const App: React.FC = () => {
    */
   const [ingredients, setIngredients] = useState<string>('');
 
-  const isMounted = useIsMounted();
+  const isMounted: React.MutableRefObject<boolean> = useIsMounted();
 
   useEffect(() => {
     if (isMounted) {
