@@ -1,6 +1,6 @@
 import React from 'react';
-import axios, { AxiosResponse } from 'axios';
 import { RestaurantMenu, Search } from '@mui/icons-material';
+
 import { fetchData } from '../../utils/fetchData';
 import { useIsMounted } from '../../hooks/isMounted';
 
@@ -33,12 +33,6 @@ const Formulaire: React.FC<Props> = ({ ingredients, setIngredients, setData, dat
       throw new Error(error.message);
     }
   };
-
-  /*  useEffect(() => {
-      if (isMounted) {
-        
-      }
-    }, []);*/
 
   return (
     <form className='relative mt-3' onSubmit={submitHandler}>
