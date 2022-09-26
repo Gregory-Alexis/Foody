@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import Header from './components/Header/Header';
 import Main from './components/Main/Main';
+import { useIsMounted } from './hooks/isMounted';
 import { fetchData } from './utils/fetchData';
 
 const App: React.FC = () => {
@@ -14,8 +15,12 @@ const App: React.FC = () => {
    */
   const [ingredients, setIngredients] = useState<string>('');
 
+  const isMounted = useIsMounted();
+
   useEffect(() => {
-    fetchData(`/recipes/findByIngredients?ingredients=${ingredients}`);
+    if (isMounted) {
+      fetchData(`/recipes/findByIngredients?ingredients=${ingredients}`);
+    }
   }, []);
 
   return (
