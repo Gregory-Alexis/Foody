@@ -14,12 +14,7 @@ const App: React.FC = () => {
 
   return (
     <div className='p-3'>
-      <Header
-        ingredients={ingredients}
-        setIngredients={setIngredients}
-        setData={setData}
-        data={data}
-      />
+      <Header ingredients={ingredients} setIngredients={setIngredients} setData={setData} />
       <Main data={data} />
     </div>
   );
