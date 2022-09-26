@@ -5,10 +5,9 @@ interface Props {
   ingredients: string;
   setIngredients: React.Dispatch<React.SetStateAction<string>>;
   setData: React.Dispatch<React.SetStateAction<any>>;
-  data: [];
 }
 
-const Header: React.FC<Props> = ({ ingredients, setIngredients, setData, data }) => {
+const Header: React.FC<Props> = ({ ingredients, setIngredients, setData }) => {
   return (
     <div>
       <h1 className='font-semibold text-lg leading-5'>
@@ -16,12 +15,7 @@ const Header: React.FC<Props> = ({ ingredients, setIngredients, setData, data })
         <br /> search for your <span className='text-green-600 font-semibold'>ingredients</span> and
         find all our recipes.
       </h1>
-      <Formulaire
-        ingredients={ingredients}
-        setIngredients={setIngredients}
-        setData={setData}
-        data={data}
-      />
+      <Formulaire ingredients={ingredients} setIngredients={setIngredients} setData={setData} />
     </div>
   );
 };
