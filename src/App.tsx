@@ -1,7 +1,8 @@
-import axios, { AxiosResponse } from 'axios';
 import React, { useEffect, useState } from 'react';
+
 import Header from './components/Header/Header';
 import Main from './components/Main/Main';
+import { fetchData } from './utils/fetchData';
 
 const App: React.FC = () => {
   // data contient les données de l'API
@@ -12,6 +13,10 @@ const App: React.FC = () => {
    * Exemple: Le mot "Apple" recherchera toutes les recettes à base de pommes.
    */
   const [ingredients, setIngredients] = useState<string>('');
+
+  useEffect(() => {
+    fetchData(`/recipes/findByIngredients?ingredients=${ingredients}`);
+  }, []);
 
   return (
     <div className='p-3'>
