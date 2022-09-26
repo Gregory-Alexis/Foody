@@ -2,6 +2,7 @@ import axios, { AxiosResponse } from 'axios';
 
 const BASE_URL: string = `https://api.spoonacular.com`;
 
+// Récupère les données API
 export const fetchData = async (endpoint: string) => {
   try {
     const { data }: AxiosResponse = await axios.get(
