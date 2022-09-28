@@ -1,35 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { RestaurantMenu, Search } from '@mui/icons-material';
 
-import { fetchData } from '../../utils/fetchData';
-import { useIsMounted } from '../../hooks/isMounted';
+import { fetchRecipeByIngredient } from '../redux/features/fetchRecipeByIngredientSlice';
 
-interface Props {
-  ingredients: string;
-  setIngredients: React.Dispatch<React.SetStateAction<string>>;
-  setData: React.Dispatch<React.SetStateAction<any>>;
-}
+const Formulaire: React.FC = () => {
+  const [ingredients, setIngredients] = useState<string>('');
 
-const Formulaire: React.FC<Props> = ({ ingredients, setIngredients, setData }) => {
-  // Permet d'écrire dans la barre de recherche
+  const dispatch = useDispatch();
+
+  const url = `/recipes/findByIngredients?ingredients=${ingredients}`;
+
   const handleSearch = (event: React.FormEvent) => {
     setIngredients((event.target as HTMLInputElement).value);
   };
 
-  const isMounted: React.MutableRefObject<boolean> = useIsMounted();
-
-  /*
-   * Lors d'un submit, la fonction fera un appel api et,
-    ira chercher les recettes à base de l'ingrédient inscrit dans la barre de recherche.
-   */
-  const submitHandler = async (event: React.FormEvent) => {
+  const submitHandler = (event: React.FormEvent) => {
     event.preventDefault();
-
-    if (isMounted) {
-      fetchData(`/recipes/findByIngredients?ingredients=${ingredients}`).then((data) =>
-        setData(data)
-      );
-    }
+    dispatch(fetchRecipeByIngredient(url));
   };
 
   return (
@@ -43,6 +31,7 @@ const Formulaire: React.FC<Props> = ({ ingredients, setIngredients, setData }) =
         value={ingredients}
         onChange={handleSearch}
         placeholder='search ingredients... ex: Apple'
+        required
       />
 
       <button type='submit' className='absolute right-0 bg-blue-600 p-1 rounded-md'>
