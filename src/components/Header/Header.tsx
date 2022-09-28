@@ -1,13 +1,7 @@
 import React from 'react';
 import Formulaire from './Formulaire';
 
-interface Props {
-  ingredients: string;
-  setIngredients: React.Dispatch<React.SetStateAction<string>>;
-  setData: React.Dispatch<React.SetStateAction<any>>;
-}
-
-const Header: React.FC<Props> = ({ ingredients, setIngredients, setData }) => {
+const Header: React.FC = () => {
   return (
     <div>
       <h1 className='font-semibold text-lg leading-5'>
@@ -15,7 +9,7 @@ const Header: React.FC<Props> = ({ ingredients, setIngredients, setData }) => {
         <br /> search for your <span className='text-green-600 font-semibold'>ingredients</span> and
         find all our recipes.
       </h1>
-      <Formulaire ingredients={ingredients} setIngredients={setIngredients} setData={setData} />
+      <Formulaire />
     </div>
   );
 };
