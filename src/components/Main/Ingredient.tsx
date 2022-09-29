@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 
 interface Elem {
@@ -13,9 +13,9 @@ const Ingredient: React.FC = () => {
   return (
     <div className='grid grid-cols-2 gap-3 mt-4'>
       {getRecipeByIngredient.map((el: Elem) => (
-        <div key={el.id}>
+        <div key={el.id} className='bg-white rounded-2xl p-1 font-semibold text-sm'>
           <img src={el.image} alt='recipes' className='rounded-2xl' />
-          <h1>{el.title}</h1>
+          <h1 className='p-2'>{el.title}</h1>
         </div>
       ))}
     </div>
