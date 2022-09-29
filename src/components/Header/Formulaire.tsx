@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { RestaurantMenu, Search } from '@mui/icons-material';
 
 import { fetchRecipeByIngredient } from '../redux/features/fetchRecipeByIngredientSlice';
@@ -15,19 +15,20 @@ const Formulaire: React.FC = () => {
     setIngredients((event.target as HTMLInputElement).value);
   };
 
-  const submitHandler = (event: React.FormEvent) => {
+  const SubmitHandler = (event: React.FormEvent) => {
     event.preventDefault();
     dispatch(fetchRecipeByIngredient(url));
   };
 
   return (
-    <form className='relative mt-3' onSubmit={submitHandler}>
+    <form className='relative mt-3' onSubmit={SubmitHandler}>
       <span className='absolute flex items-center bottom-0 top-0 text-gray-400'>
         <Search />
       </span>
       <input
         className='outline-none p-1 w-full pl-8'
         type='text'
+        name='text'
         value={ingredients}
         onChange={handleSearch}
         placeholder='search ingredients... ex: Apple'
