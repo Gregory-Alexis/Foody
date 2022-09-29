@@ -1,5 +1,6 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+
+import { useAppSelector } from '../app/hooks';
 
 interface Elem {
   id: number;
@@ -8,7 +9,7 @@ interface Elem {
 }
 
 const Ingredient: React.FC = () => {
-  const { getRecipeByIngredient } = useSelector((state: any) => state.fetchRecipeByIngredient);
+  const { getRecipeByIngredient } = useAppSelector((state) => state.fetchRecipeByIngredient);
   console.log(getRecipeByIngredient);
   return (
     <div className='grid grid-cols-2 gap-3 mt-4'>
