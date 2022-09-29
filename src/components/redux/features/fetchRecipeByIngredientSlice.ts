@@ -3,7 +3,7 @@ import { Recipe } from '../../../models/recipe';
 import { fetchIngredient } from '../../../utils/fetchIngredient';
 
 export interface InitialState {
-  getRecipeByIngredient: Recipe[] | void;
+  getRecipeByIngredient: Recipe[];
   isLoading: boolean;
   isSuccess: boolean;
   isError: any;
