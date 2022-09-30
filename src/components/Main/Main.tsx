@@ -1,8 +1,8 @@
 import React from 'react';
-import { useAppSelector } from '../app/hooks';
+import { useAppSelector } from '../../redux/app/hooks';
 import Loading from '../Loading/Loading';
-import Ingredient from './Ingredient';
-import TypeOfMeal from './TypeOfMeal';
+import Ingredient from './Recipes/Ingredient';
+import TypeOfMeal from './Recipes/TypeOfMeal';
 
 const Main: React.FC = () => {
   const { isLoading } = useAppSelector((state) => state.fetchRecipeByIngredient);
